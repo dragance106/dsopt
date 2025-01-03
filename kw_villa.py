@@ -1044,15 +1044,15 @@ if __name__=="__main__":
                                neighbor_left=True,
                                neighbor_right=True,
                                neighbor_back=True,
-                               glazing_open_facade=1,
+                               glazing_open_facade=3,
                                shading_open_facade='ext_shade',
-                               glazing_closed_facade=3,
-                               wwr_front=0.7,
+                               glazing_closed_facade=6,
+                               wwr_front=0.4,
                                wwr_left=0.1,
                                wwr_right=0.1,
-                               wwr_back=0.2,
+                               wwr_back=0.1,
                                exterior_wall=2,
-                               insulation_thickness=0.20)
+                               insulation_thickness=0.50)
 
     # energy = simulate_coastal_villa_lux(glazing_open_facade=5,
     #                                     shading_open_facade='ext_blind',
