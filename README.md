@@ -6,6 +6,7 @@ and mixed variable genetic algorithm from pymoo package.
 
 The new method is described in more detail in the forthcoming paper
 H. Dashti, S. Stevanović, S. Al-Yakoob, D. Stevanović,
-*Parallel Monte Carlo surrogate optimization of semi-expensive black-box functions in discrete spaces*.
+*Parallel Monte Carlo surrogate optimization of semi-expensive black-box functions in discrete spaces*,
+accepted for publication in Journal of Building Engineering (2025).
 
 Work on this project was supported by Kuwait University through small project VA01/23.
