@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dsopt"
+version = "1.0.0"
+description = "Discrete parallel Monte Carlo-based surrogate optimization for mixed design spaces"
+readme = "README.md"
+authors = [
+    { name="Sanja Stevanovic", email="sanja.stevanovic@mi.sanu.ac.rs" },
+    { name="Dragan Stevanovic", email="dragance106@yahoo.com"}
+]
+license = { text = "MIT" }
+dependencies = ["xgboost", "numpy", "pandas"]
+requires-python = ">=3.10"
+
+[project.urls]
+"Homepage" = "https://github.com/dragance106/dsopt"
+"Bug Tracker" = "https://github.com/dragance106/dsopt/issues"
