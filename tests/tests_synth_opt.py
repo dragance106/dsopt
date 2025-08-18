@@ -295,7 +295,17 @@ def do_nothing(**kwargs):
 
 
 if __name__ == '__main__':
-    pass
+    from dsopt import dsopt
+
+    best_value, best_point = dsopt(grlee12,
+                                   {'x': np.linspace(0.5, 2.5, 2001)},
+                                   opt='min',
+                                   max_evaluations=100,
+                                   initial_sample_size=12,
+                                   iterative_sample_size=8)
+
+    print('best value: ', best_value)
+    print('best point: ', best_point)
 
     # for i in range(10):
     #     best_value, best_point = dsopt_mipt(grlee12,

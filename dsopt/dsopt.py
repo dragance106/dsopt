@@ -28,9 +28,9 @@ import time
 # Useful methods from other package files #
 ###########################################
 from dsopt.arguments import analyze_arguments, hypercube_to_arguments, hypercube_to_sample
-from mipt import mipt
-from pareto import select_candidates
-from uncertainty import MIPTUncertainty, APosterioriUncertainty, VoronoiUncertainty
+from dsopt.mipt import mipt
+from dsopt.pareto import select_candidates
+from dsopt.uncertainty import MIPTUncertainty, APosterioriUncertainty, VoronoiUncertainty
 
 
 #############################################################
