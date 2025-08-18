@@ -134,11 +134,11 @@ In this case `simulate_desert_villa` is a method from `tests\kw_villa\kw_villa.p
 that uses [`eppy`](https://eppy.readthedocs.io/en/latest/) 
 to set up a programmable EnergyPlus model of a residential villa in Kuwait,
 call EnergyPlus to simulate its energy behavior and
-returns the total primary energy needed for heating and cooling (well, cooling mostly).
+returns the total primary energy needed for heating and cooling (well, mostly cooling).
 
 The design space parameters now include categorical variables
 `glazing_open_facade`, `shading_open_facade`, `glazing_closed_facade` and `exterior_wall`,
-indicated as a tuple containing the list of admissible values and the categorical indicator `c`.
+indicated as a tuple containing the list of admissible values and the categorical indicator `'c'`.
 `wwr_front` and `insulation_thickness` are real parameters
 discretized with a relatively small resolution,
 indicative of expected resolution with which
@@ -150,12 +150,13 @@ for example, `'x': (10, ['left', 'right'], 'c')`
 would indicate an array of ten categorical parameters `'x0', ... 'x9'`
 each having a value either `'left'` or `'right'`.
 
-The remaining arguments in the above call give a greater control over the inner working of `dsopt`.
+The remaining arguments in the above call give a greater control over the inner workings of `dsopt`.
 At moment, three different uncertainty metrics are supported:
 `'mipt'` and `'voronoi'` are distance based,
 while `'aposteriori'` uses historical relative errors of earlier instances of the surrogate model.
 
-`dsopt` selects a new sample by taking a large pool of candidates (whose size is controlled by `k`),
+`dsopt` selects a new sample by taking a large pool of candidates 
+(whose size is controlled by the value of the multiplier `k`),
 which is divided into areas of low uncertainty, medium uncertainty and high uncertainty.
 `tau_percentage` sets the percentage of the candidate pool that is proclaimed as low uncertainty,
 where it is expected that the surrogate model predicts the expensive function relatively well,
@@ -173,16 +174,16 @@ which will form `sigma_u` percents of the new evaluation sample.
 All the remaining candidates form the area of medium uncertainty,
 where it is expected that the surrogate model prediction quality will decrease with increasing uncertainty.
 Hence, higher uncertainty implies that one should primarily be interested in candidates with better predictions,
-so that in this area `dsopt` finds Pareto solutions for with increasing (prediction, uncertainty)
+so that in this area `dsopt` finds Pareto solutions for with increasing (prediction, uncertainty) values
 and samples uniformly among them to create
-the remaining `100-sigma_t-sigma_u` percent of the new evaluation sample.
+the remaining `100-sigma_t-sigma_u` percents of the new evaluation sample.
 
 Several more arguments exist for `dsopt`,
 whose description can be found in its docstring in `dsopt/dsopt.py`.
 
 ### A few further examples
 
-`tests` folder contains a further examples of using `dsopt`
+`tests` folder contains further examples of using `dsopt`
 with categorical versions of the COCO mixed-integer test functions,
 and their benchmarking against [pysot](https://github.com/dme65/pySOT), [pymoo](https://pymoo.org/) and [smac3](https://github.com/automl/SMAC3).
 
